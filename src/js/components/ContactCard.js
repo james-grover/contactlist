@@ -38,7 +38,7 @@ class ContactCard extends React.Component{
 									<span className="text-muted small">{store.contacts[this.props.id].phone}</span>
 									<br />
 									<span className="fa fa-envelope fa-fw text-muted mr-3" data-toggle="tooltip" data-original-title="" title=""></span>
-									<span className="text-muted small text-truncate">{store.contacts[this.props.id].phone}</span>
+									<span className="text-muted small text-truncate">{store.contacts[this.props.id].email}</span>
 									
 							
 								
