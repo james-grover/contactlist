@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import ContactCard from '../components/ContactCard';
 import Modal from '../components/Modal';
+import { Context } from "../store/appContext.jsx";
 
 export default class Contacts extends React.Component {
 	constructor(){
@@ -21,10 +22,24 @@ export default class Contacts extends React.Component {
 				</p>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						<ContactCard onDelete={() => this.setState({ showModal: true})} />
-						<ContactCard />
-						<ContactCard />
-						<ContactCard />
+						<Context.Consumer>
+							{({ store, actions }) => {
+					
+							return store.contacts.map((item, index) => {
+							//console.log(index);
+							
+							return (
+								<div
+									className="col-lg-3 col-md-6 mb-4"
+									key={item.index}>
+									<ContactCard id={index}	/>
+									
+								</div>
+						);
+					});
+				}}
+						</Context.Consumer>
+						
 					</ul>
 				</div>
 			</div>
