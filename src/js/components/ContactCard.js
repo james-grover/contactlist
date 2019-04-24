@@ -27,19 +27,19 @@ class ContactCard extends React.Component{
 										<button className="btn" onClick={() => this.props.onDelete()}><i className="fas fa-trash-alt"></i></button>
 									</div>
 							
-									<div>
-										<label className="name lead">{store.contacts[this.props.id].full_name}</label>
-										{console.log(store.contacts[this.props.id].full_name)}
-										<br />
-										<i className="fas fa-map-marker-alt text-muted mr-3"></i>
-										<span className="text-muted">{store.contacts[this.props.id].address}</span>
-										<br />
-										<span className="fa fa-phone fa-fw text-muted mr-3" data-toggle="tooltip" title="" data-original-title="(870) 288-4149"></span>
-										<span className="text-muted small">{store.contacts[this.props.id].phone}</span>
-										<br />
-										<span className="fa fa-envelope fa-fw text-muted mr-3" data-toggle="tooltip" data-original-title="" title=""></span>
-										<span className="text-muted small text-truncate">{store.contacts[this.props.id].phone}</span>
-									</div>
+									
+									<label className="name lead">{store.contacts[this.props.id].full_name}</label>
+									{console.log(store.contacts[this.props.id].full_name)}
+									<br />
+									<i className="fas fa-map-marker-alt text-muted mr-3"></i>
+									<span className="text-muted">{store.contacts[this.props.id].address}</span>
+									<br />
+									<span className="fa fa-phone fa-fw text-muted mr-3" data-toggle="tooltip" title="" data-original-title="(870) 288-4149"></span>
+									<span className="text-muted small">{store.contacts[this.props.id].phone}</span>
+									<br />
+									<span className="fa fa-envelope fa-fw text-muted mr-3" data-toggle="tooltip" data-original-title="" title=""></span>
+									<span className="text-muted small text-truncate">{store.contacts[this.props.id].phone}</span>
+									
 							
 								
 								</div>

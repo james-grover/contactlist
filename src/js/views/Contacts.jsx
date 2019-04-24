@@ -15,36 +15,28 @@ export default class Contacts extends React.Component {
 
 	render() {
 	return (
-		<div className="container">
-			<div>
-				<p className="text-right my-3">
-					<Link className="btn btn-success" to="/add">Add new contact</Link>
-				</p>
-				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
-					<ul className="list-group pull-down" id="contact-list">
-						<Context.Consumer>
-							{({ store, actions }) => {
-					
-							return store.contacts.map((item, index) => {
-							//console.log(index);
-							
-							return (
-								<div
-									className="col-lg-3 col-md-6 mb-4"
-									key={item.index}>
-									<ContactCard id={index}	/>
-									
+		<Context.Consumer>
+			{({ store, actions }) => {
+				return store.contacts.map((item, index) => {
+					return (
+						<div className="container" key={item.index}>
+							<div>
+								<p className="text-right my-3">
+									<Link className="btn btn-success" to="/add">Add new contact</Link>
+								</p>
+								<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
+									<ul className="list-group pull-down" id="contact-list">
+										<ContactCard onDelete={() => this.setState({ showModal: true})} id={index}/>
+										
+									</ul>
 								</div>
-						);
-					});
-				}}
-						</Context.Consumer>
-						
-					</ul>
-				</div>
-			</div>
-			<Modal show={this.state.showModal} onClose={() => this.setState({showModal: false})} />
-		</div>
+							</div>
+							<Modal show={this.state.showModal} onClose={() => this.setState({showModal: false})} />
+						</div>
+					);
+				});
+					}}
+		</Context.Consumer>
 		);
 	}
 }
