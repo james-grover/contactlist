@@ -29,7 +29,6 @@ class ContactCard extends React.Component{
 							
 									
 									<label className="name lead">{store.contacts[this.props.id].full_name}</label>
-									{console.log(store.contacts[this.props.id].full_name)}
 									<br />
 									<i className="fas fa-map-marker-alt text-muted mr-3"></i>
 									<span className="text-muted">{store.contacts[this.props.id].address}</span>
