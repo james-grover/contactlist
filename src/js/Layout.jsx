@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Store from "./store/appContext.jsx";
 import Contacts from "./views/Contacts.jsx";
+import EditContact from "./views/EditContact.jsx";
 import AddContact from "./views/AddContact.jsx";
 
 class Layout extends React.Component {
@@ -15,7 +16,7 @@ class Layout extends React.Component {
 							<Route exact path="/" component={Contacts} />
 							<Route exact path="/contacts" component={Contacts} />
 							<Route exact path="/add" component={AddContact} />
-							<Route exact path="/edit" component={AddContact} />
+							<Route exact path="/edit/:id" component={EditContact} />
 							<Route render={() => <h1 className="notfound">Not found!</h1>} />
 						</Switch>
 					</div>

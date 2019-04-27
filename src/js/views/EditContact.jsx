@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 
-export default class AddContact extends React.Component {
+export default class EditContact extends React.Component {
 	render() {
 		return (
 			<Context.Consumer>
 				{({store, actions}) => {
 					let id = this.props.match.params.id;
-					console.log (this.props.match);
+					let EDITid = store.contacts[id].id;
+					
 					return(
 						<div className="container">
 							<div>
@@ -17,22 +18,26 @@ export default class AddContact extends React.Component {
 								<form>
 									<div className="form-group">
 										<label>Full Name</label>
-										<input id="NameInput" type="text" className="form-control" placeholder="Full Name" />
+										<input id="NameInput" type="text" className="form-control" placeholder="Full Name" 
+										defaultValue={store.contacts[id].full_name}/>
 									</div>
 									<div className="form-group">
 										<label>Email</label>
-										<input id="EmailInput" type="email" className="form-control" placeholder="Enter email" />
+										<input id="EmailInput" type="email" className="form-control" placeholder="Enter email" 
+										defaultValue={store.contacts[id].email}/>
 									</div>
 									<div className="form-group">
 										<label>Phone</label>
-										<input id="PhoneInput" type="phone" className="form-control" placeholder="Enter phone" />
+										<input id="PhoneInput" type="phone" className="form-control" placeholder="Enter phone" 
+										defaultValue={store.contacts[id].phone}/>
 									</div>
 									<div className="form-group">
 										<label>Address</label>
-										<input id="AddressInput" type="text" className="form-control" placeholder="Enter address" />
+										<input id="AddressInput" type="text" className="form-control" placeholder="Enter address"
+										defaultValue={store.contacts[id].address}/>
 									</div>
 									<button type="button" className="btn btn-primary form-control"
-									onClick={() => actions.addContact(this.props.history, id,
+									onClick={() => actions.addContact(this.props.history, EDITid,
 									document.querySelector('#NameInput').value,
 									document.querySelector('#EmailInput').value,
 									document.querySelector('#PhoneInput').value,
@@ -50,7 +55,7 @@ export default class AddContact extends React.Component {
 	}
 }
 
-AddContact.propTypes = {
+EditContact.propTypes = {
 	match: PropTypes.object,
 	history: PropTypes.object
 };
