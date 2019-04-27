@@ -16,6 +16,15 @@ const getState = ({ getStore, setStore }) => {
 				setStore({store: newContact});
 				history.push('/');
 				
+			},
+			
+			deleteContact:(index, history) => {
+				let store = getStore();
+				store.contacts.splice(index,1);
+				setStore({store: store});
+				
+				history.push('/');
+				console.log(store);
 			}
 			
 			
