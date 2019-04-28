@@ -37,7 +37,7 @@ export default class EditContact extends React.Component {
 										defaultValue={store.contacts[id].address}/>
 									</div>
 									<button type="button" className="btn btn-primary form-control"
-									onClick={() => actions.addContact(this.props.history, EDITid,
+									onClick={() => actions.updateContact(this.props.history, EDITid,
 									document.querySelector('#NameInput').value,
 									document.querySelector('#EmailInput').value,
 									document.querySelector('#PhoneInput').value,

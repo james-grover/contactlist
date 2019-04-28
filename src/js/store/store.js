@@ -19,6 +19,7 @@ const getState = ({ getStore, setStore }) => {
 			},
 			updateContact: (history, EDITid, name, email, phone, address) =>{
 			let store = getStore();
+			console.log(EDITid);
 			fetch("https://assets.breatheco.de/apis/fake/contact/" + EDITid, {
                 method: 'PUT',
                 headers: {
@@ -27,7 +28,7 @@ const getState = ({ getStore, setStore }) => {
                 body:   JSON.stringify({
                         "full_name": name,
                         "email": email,
-                        "agenda_slug": "downtown_vi",
+                        "agenda_slug": "downtown_viii",
                         "address": address,
                         "phone": phone
                 })
