@@ -20,6 +20,7 @@ export default class Contacts extends React.Component {
 			{({ store, actions }) => {
 				
 				return store.contacts.map((item, index) => {
+					let id = this.props.id;
 					return (
 						<div className="container" key={index}>
 							<div>
@@ -28,18 +29,24 @@ export default class Contacts extends React.Component {
 								</p>
 								<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 									<ul className="list-group pull-down" id="contact-list">
-										<ContactCard id={index} key={index} onDelete={() => 
-											actions.deleteContact(this.props.id, this.props.history)	
+										<ContactCard id={index} key={index} onDelete={() =>
+											
+											//alert(id)
+											
+											actions.deleteContact({index}, this.props.history)
+											
 										}/>
 										
 									</ul>
 								</div>
 							</div>
 							<Modal show={this.state.showModal} onClose={() => this.setState({showModal: false})} />
+						
 						</div>
 					);
 				});
 					}}
+		
 		</Context.Consumer>
 		);
 	}

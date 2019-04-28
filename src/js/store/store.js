@@ -54,13 +54,14 @@ const getState = ({ getStore, setStore }) => {
 			},
 			
 			
-			deleteContact:(index, history) => {
+			deleteContact:(id, history) => {
 				let store = getStore();
-				store.contacts.splice(index,1);
+
+				store.contacts.splice(id.index,1);
 				setStore({store: store});
 				
 				history.push('/');
-				console.log(store);
+				//console.log(store);
 			}
 			
 			
