@@ -18,8 +18,8 @@ const getState = ({ getStore, setStore }) => {
 				
 			},
 			updateContact: (history, EDITid, name, email, phone, address) =>{
-			let store = getStore();
-			console.log(EDITid);
+			//let store = getStore();
+			//console.log(EDITid);
 			fetch("https://assets.breatheco.de/apis/fake/contact/" + EDITid, {
                 method: 'PUT',
                 headers: {
@@ -35,23 +35,22 @@ const getState = ({ getStore, setStore }) => {
 			})
 			
 			.then(response => response.json())
-              //.then(myJson => alert(JSON.stringify(myJson)))
-              .then(getUpdatedData => {
-                  fetch('https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii')
-                  .then(response => response.json())
-                   // .then(myJson => alert(JSON.stringify(myJson))
-                  .then(data => {
-                      let store = this.state;
-                      store.contacts = data;
-                      this.setState({ store });
-                    })
+//			.then(getUpdatedData => {
+//                 fetch('https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii')
+//                  .then(response => response.json())
+//                   // .then(myJson => alert(JSON.stringify(myJson))
+//                  .then(data => {
+//                	let {store}  = this.state;
+//                    store.contacts = data;
+//                    this.setState({ store });
+//                    })
 			.then(update => {
                       history.push('/');
                   });
-              })
-			.catch(error => {
-                    alert(error);
-              }); 	
+//              })
+//			.catch(error => {
+//                    alert(error);
+//              }); 	
 			},
 			
 			
