@@ -56,11 +56,19 @@ const getState = ({ getStore, setStore }) => {
 			
 			deleteContact:(id, history) => {
 				let store = getStore();
-
+				let APIid = store.contacts[id.index].id;
+				//console.log(store.contacts[id.index].id);
 				store.contacts.splice(id.index,1);
 				setStore({store});
-				
 				history.push('/');
+				fetch("https://assets.breatheco.de/apis/fake/contact/" + APIid, {
+                method: 'DELETE',
+                headers: {
+                  "Content-type": "application/json;charset=utf-8"
+                }
+                
+			});
+				
 				//console.log(store);
 			}
 			
