@@ -35,22 +35,23 @@ const getState = ({ getStore, setStore }) => {
 			})
 			
 			.then(response => response.json())
-//			.then(getUpdatedData => {
-//                 fetch('https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii')
-//                  .then(response => response.json())
-//                   // .then(myJson => alert(JSON.stringify(myJson))
-//                  .then(data => {
-//                	let {store}  = this.state;
-//                    store.contacts = data;
+			.then(getUpdatedData => {
+                 fetch('https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii')
+                  .then(response => response.json())
+                   // .then(myJson => alert(JSON.stringify(myJson))
+                  .then(data => {
+					let store  = getStore();
+                    store.contacts = data;
 //                    this.setState({ store });
-//                    })
+					setStore({store});
+                  })
 			.then(update => {
                       history.push('/');
                   });
-//              })
-//			.catch(error => {
-//                    alert(error);
-//              }); 	
+              })
+			.catch(error => {
+                    alert(error);
+              }); 	
 			},
 			
 			
