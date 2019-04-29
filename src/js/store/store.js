@@ -38,11 +38,10 @@ const getState = ({ getStore, setStore }) => {
 			.then(getUpdatedData => {
                  fetch('https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii')
                   .then(response => response.json())
-                   // .then(myJson => alert(JSON.stringify(myJson))
+//                  .then(myJson => alert(JSON.stringify(myJson))) 
                   .then(data => {
 					let store  = getStore();
-                    store.contacts = data;
-//                    this.setState({ store });
+					store.contacts = data;
 					setStore({store});
                   })
 			.then(update => {
