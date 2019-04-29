@@ -9,7 +9,7 @@ export default class AddContact extends React.Component {
 			<Context.Consumer>
 				{({store, actions}) => {
 					let id = this.props.match.params.id;
-					console.log (this.props.match);
+//					console.log (this.props.match);
 					return(
 						<div className="container">
 							<div>
