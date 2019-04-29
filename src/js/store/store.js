@@ -6,15 +6,39 @@ const getState = ({ getStore, setStore }) => {
 		actions: {
 			addContact: (history, index, name, email, phone, address) => {
 				let store = getStore();
-				let newContact ={
-					full_name: name,
-					email: email,
-					phone: phone,
-					address: address
-				};
-				store.contacts.push(newContact);
-				setStore({store: newContact});
-				history.push('/');
+				let APIid = store.contacts[store.contacts.length -1].id;
+				let AddAPIid = Number(APIid) + 1;
+				fetch("https://assets.breatheco.de/apis/fake/contact/", {
+					method: 'POST',
+					headers: {
+						"Content-type": "application/json;charset=utf-8"
+					},
+					body:   JSON.stringify({
+						"id": AddAPIid.toString(),
+						"agenda_slug": "downtown_viii",
+						"full_name": name,
+						"email": email,
+						"phone": phone,
+						"address": address
+					})
+				})
+				.then(response => response.json())
+				.then(getUpdatedData => {
+                 fetch('https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii')
+                  .then(response => response.json())
+//                  .then(myJson => alert(JSON.stringify(myJson))) 
+                  .then(data => {
+					let store  = getStore();
+					store.contacts = data;
+					setStore({store});
+                  })
+			.then(update => {
+                      history.push('/');
+                  });
+              })
+			.catch(error => {
+                    alert(error);
+              }); 	
 				
 			},
 			updateContact: (history, EDITid, name, email, phone, address) =>{
