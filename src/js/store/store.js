@@ -8,6 +8,17 @@ const getState = ({ getStore, setStore }) => {
 				let store = getStore();
 				let APIid = store.contacts[store.contacts.length -1].id;
 				let AddAPIid = Number(APIid) + 1;
+				
+				let newContact ={
+					full_name: name,
+					email: email,
+					phone: phone,
+					address: address
+				};
+				store.contacts.push(newContact);
+				setStore({store});
+				history.push('/');
+				
 				fetch("https://assets.breatheco.de/apis/fake/contact/", {
 					method: 'POST',
 					headers: {
@@ -31,10 +42,8 @@ const getState = ({ getStore, setStore }) => {
 					let store  = getStore();
 					store.contacts = data;
 					setStore({store});
-                  })
-			.then(update => {
-                      history.push('/');
                   });
+			
               })
 			.catch(error => {
                     alert(error);
