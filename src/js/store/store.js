@@ -58,7 +58,7 @@ const getState = ({ getStore, setStore }) => {
 				let store = getStore();
 
 				store.contacts.splice(id.index,1);
-				setStore({store: store});
+				setStore({store});
 				
 				history.push('/');
 				//console.log(store);
