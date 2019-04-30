@@ -20,7 +20,8 @@ export default class Contacts extends React.Component {
 			{({ store, actions }) => {
 				
 				return store.contacts.map((item, index) => {
-					let id = this.props.id;
+					//let id = this.props.id;
+					//console.log(id);
 					return (
 						<div className="container" key={index}>
 							<div>
@@ -33,7 +34,7 @@ export default class Contacts extends React.Component {
 											
 											//alert(id)
 											
-											actions.deleteContact({index}, this.props.history)
+											this.setState({ showModal: true, modalId: index })
 											
 										}/>
 										
