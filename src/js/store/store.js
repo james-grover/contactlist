@@ -88,7 +88,7 @@ const getState = ({ getStore, setStore }) => {
 			
 			
 			deleteContact:(history, id, close) => {
-//				console.log(id);
+
 				let store = getStore();
 				let APIid = store.contacts[id].id;
 				console.log(APIid);
