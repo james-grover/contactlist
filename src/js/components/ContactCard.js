@@ -15,7 +15,7 @@ class ContactCard extends React.Component{
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => {
-					console.log (this.props);
+//					console.log (this.props);
 					return(
 						<li className="list-group-item">
 							<div className="row w-100">

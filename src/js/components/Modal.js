@@ -16,7 +16,7 @@ class Modal extends React.Component{
 			<Context.Consumer>
 				{({ store, actions }) => {				
 				let id = this.props.id;
-				console.log(this.props);
+//				console.log(this.props);
 					return(
 						<div className="modal" tabIndex="-1" role="dialog" style={{display: (this.props.show) ? 'inline-block' : 'none'}}>
 							<div className="modal-dialog" role="document">
@@ -36,7 +36,7 @@ class Modal extends React.Component{
 									<div className="modal-footer">
 										<button type="button" className="btn btn-primary">Oh no!</button>
 										<button type="button" className="btn btn-secondary" data-dismiss="modal"
-										//={() => actions.deleteContact(this.props.history, id, this.props.onClose())}
+										onClick={() => actions.deleteContact(this.props.history, id, this.props.onClose())}
 										>Do it!</button>
 									</div>
 								</div>

@@ -88,20 +88,21 @@ const getState = ({ getStore, setStore }) => {
 			
 			
 			deleteContact:(history, id, close) => {
+//				console.log(id);
 				let store = getStore();
-				//let APIid = store.contacts[id.index].id;
-				console.log(id);
+				let APIid = store.contacts[id].id;
+				console.log(APIid);
 				//console.log(store.contacts[id.index].id);
-				//store.contacts.splice(id.index,1);
-				//setStore({store});
-				//history.push('/');
-//				fetch("https://assets.breatheco.de/apis/fake/contact/" + APIid, {
-//                method: 'DELETE',
-//                headers: {
-//                  "Content-type": "application/json;charset=utf-8"
-//                }
+				store.contacts.splice(id,1);
+				setStore({store});
+				history.push('/');
+				fetch("https://assets.breatheco.de/apis/fake/contact/" + APIid, {
+                method: 'DELETE',
+                headers: {
+                  "Content-type": "application/json;charset=utf-8"
+                }
                 
-//			}  );
+			});
 				
 				//console.log(store);
 			}
